@@ -32,19 +32,18 @@ const rendcasilla = ({
   return luz;
 }
 
-const cont = (n, state) =>{
-  let t = 0;
-  for(let i = 0; i <= state.matrix.lenght; i++){
-    if (state.matrix[i] == n){
-      t += 1;
-    }
-    console.log(state.matrix[i] == n);
-    
-  }
-  console.log(state);
-  return t;
-}
 const render = (mount, appState) => {
+  const contar = (n) =>{
+    let t = 0;
+    for(let i = 0; i <= appState.matrix.length; i++){
+      if (appState.matrix[i] == n){
+        t += 1;
+      }
+      console.log(appState.matrix[i] == n); 
+    }
+    return t/2;
+  }
+
   root.innerHTML = "";
   const titulo = document.createElement('div');
   titulo.innerText = 'Othelo!';
@@ -75,10 +74,12 @@ const render = (mount, appState) => {
       isturn = true;
     }
   }
-  let blanco = 0;
-  let negro = 0;
+  let blanco = contar(2);
+  let negro = contar(1);
+  console.log("Blanco> ", blanco);
+  console.log("Negro> ", negro);
   const puntos = document.createElement('div') ;
-  puntos.innerText = `Blancas: ${blanco + cont(2, appState)}/Negras: ${negro + cont(1, appState)}`;
+  puntos.innerText = `Blancas: ${blanco + contar(2)}/Negras: ${negro + contar(1)}`;
   puntos.style.marginLeft = '140px';
   mount.appendChild(titulo);
   mount.appendChild(semaforo);
