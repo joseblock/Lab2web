@@ -26,8 +26,7 @@ const rendcasilla = ({
       appState.matrix[index] = 2;
       render(root, appState);
     }
-    
-    //console.log(appState.matrix);
+    console.log(appState.matrix);
   }
   return luz;
 }
@@ -39,7 +38,6 @@ const render = (mount, appState) => {
       if (appState.matrix[i] == n){
         t += 1;
       }
-      console.log(appState.matrix[i] == n); 
     }
     return t/2;
   }
